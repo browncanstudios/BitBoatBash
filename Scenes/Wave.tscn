@@ -1,0 +1,27 @@
+[gd_scene load_steps=7 format=2]
+
+[ext_resource path="res://Assets/Wave/wave-3.png" type="Texture" id=1]
+[ext_resource path="res://Assets/Wave/wave-2.png" type="Texture" id=2]
+[ext_resource path="res://Assets/Wave/wave-1.png" type="Texture" id=3]
+[ext_resource path="res://Assets/Wave/wave-4.png" type="Texture" id=4]
+[ext_resource path="res://Scenes/Wave.gd" type="Script" id=5]
+
+[sub_resource type="SpriteFrames" id=1]
+animations = [ {
+"frames": [ ExtResource( 3 ), ExtResource( 2 ), ExtResource( 1 ), ExtResource( 4 ) ],
+"loop": true,
+"name": "default",
+"speed": 6.0
+} ]
+
+[node name="Wave" type="AnimatedSprite"]
+frames = SubResource( 1 )
+frame = 2
+playing = true
+script = ExtResource( 5 )
+
+[node name="Timer" type="Timer" parent="."]
+one_shot = true
+autostart = true
+
+[connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]

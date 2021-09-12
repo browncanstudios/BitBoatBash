@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/sfx-engine-slow.wav-e1d31d8a53fb80155df03d61f0fe48cc.sample"
+
+[deps]
+
+source_file="res://Assets/Sfx/sfx-engine-slow.wav"
+dest_files=[ "res://.import/sfx-engine-slow.wav-e1d31d8a53fb80155df03d61f0fe48cc.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=true
+compress/mode=0

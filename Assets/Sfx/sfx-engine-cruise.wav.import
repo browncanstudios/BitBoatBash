@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/sfx-engine-cruise.wav-8a815564797880a81096b3434fda7606.sample"
+
+[deps]
+
+source_file="res://Assets/Sfx/sfx-engine-cruise.wav"
+dest_files=[ "res://.import/sfx-engine-cruise.wav-8a815564797880a81096b3434fda7606.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=true
+compress/mode=0
