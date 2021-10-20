@@ -1,13 +1,13 @@
 extends KinematicBody2D
 
 signal score_changed
-signal died
 
 export var speed = 300
 
 var velocity = Vector2(speed, 0.0)
 var score = 0
 var alive = true
+var invincible = false
 
 # TODO: figure out how to do this, maybe with 3 AudioStreamPlayer2D objects?
 var engine_cruise_sound = preload("res://Assets/Sfx/sfx-engine-cruise.wav")
@@ -20,11 +20,6 @@ func increment_score(amount):
 
 	score += amount
 	emit_signal("score_changed")
-
-func die():
-	alive = false
-	visible = false
-	emit_signal("died")
 
 func _physics_process(_delta):
 	if !alive:
@@ -85,4 +80,20 @@ func _physics_process(_delta):
 		var collision = get_slide_collision(index)
 		if collision.collider.is_in_group("Mine"):
 			collision.collider.collided()
-			die()
+			if !invincible:
+				sink()
+
+func sink():
+	alive = false
+	$InvincibilityOverlay.visible = false
+	$AnimatedSprite.set_speed_scale(1.0)
+	$AnimatedSprite.play("sinking")
+
+func become_invincible():
+	invincible = true
+	$InvincibilityOverlay.visible = true
+	$InvincibilityTimer.start()
+	
+func _on_InvincibilityTimer_timeout():
+	invincible = false
+	$InvincibilityOverlay.visible = false

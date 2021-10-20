@@ -2,32 +2,23 @@ extends Node
 
 var rng = RandomNumberGenerator.new()
 
+signal restart
+
 func _ready():
 	rng.randomize()
 
-func soft_restart():
-	$Player.alive = true
-	$Player.visible = true
-	$Player.score = 0
-	$CanvasLayer/HUD/HBoxContainer/ScoreContainer/Label.set_text("X" + String($Player.score))
-	for node in get_children():
-		if node.is_in_group("Mine"):
-			node.die()
-		elif node.is_in_group("Collectible"):
-			node.die()
-
 func _input(event):
-	if event is InputEventKey and event.pressed:
-		if event.scancode == KEY_R:
-			soft_restart()
-	elif event is InputEventMouseButton:
+	if event is InputEventMouseButton:
 		if event.button_index == BUTTON_LEFT and event.pressed:
 			if $Player.alive == false:
-				soft_restart()
+				emit_signal("restart")
+	if event is InputEventKey and event.pressed:
+		if event.scancode == KEY_I:
+			$Player.become_invincible()
 
 func _process(_delta):
 	if Input.is_action_pressed("ui_select"):
-		soft_restart()
+		emit_signal("restart")
 		
 	if $WaveSpawnTimer.is_stopped():
 		var min_time = 0.25
@@ -68,6 +59,3 @@ func _on_WaveTimer_timeout():
 func _on_Player_score_changed():
 	if $Player.alive:
 		$CanvasLayer/HUD/HBoxContainer/ScoreContainer/Label.set_text("X" + String($Player.score))
-
-func _on_Player_died():
-	$Player.alive = false
