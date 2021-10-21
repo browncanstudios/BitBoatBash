@@ -51,7 +51,7 @@ script = ExtResource( 5 )
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
 frames = SubResource( 1 )
-frame = 2
+frame = 3
 playing = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
@@ -66,6 +66,7 @@ limit_bottom = 480
 [node name="InvincibilityOverlay" type="AnimatedSprite" parent="."]
 visible = false
 frames = SubResource( 3 )
+frame = 4
 playing = true
 
 [node name="InvincibilityTimer" type="Timer" parent="."]

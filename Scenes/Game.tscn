@@ -34,7 +34,10 @@ one_shot = true
 
 [node name="HUD" parent="CanvasLayer" instance=ExtResource( 4 )]
 
+[node name="CoffeeSpawnTimer" type="Timer" parent="."]
+
 [connection signal="score_changed" from="Player" to="." method="_on_Player_score_changed"]
 [connection signal="timeout" from="MineSpawnTimer" to="." method="_on_MineSpawnTimer_timeout"]
 [connection signal="timeout" from="CollectibleSpawnTimer" to="." method="_on_CollectibleSpawnTimer_timeout"]
 [connection signal="timeout" from="WaveSpawnTimer" to="." method="_on_WaveTimer_timeout"]
+[connection signal="timeout" from="CoffeeSpawnTimer" to="." method="_on_CoffeeSpawnTimer_timeout"]
