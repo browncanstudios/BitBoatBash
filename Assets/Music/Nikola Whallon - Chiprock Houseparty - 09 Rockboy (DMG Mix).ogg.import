@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/Nikola Whallon - Chiprock Houseparty - 09 Rockboy (DMG Mix).ogg-907ed92fde4d26c7be7eadd8ce47b98a.oggstr"
+
+[deps]
+
+source_file="res://Assets/Music/Nikola Whallon - Chiprock Houseparty - 09 Rockboy (DMG Mix).ogg"
+dest_files=[ "res://.import/Nikola Whallon - Chiprock Houseparty - 09 Rockboy (DMG Mix).ogg-907ed92fde4d26c7be7eadd8ce47b98a.oggstr" ]
+
+[params]
+
+loop=false
+loop_offset=0

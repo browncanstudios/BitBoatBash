@@ -28,8 +28,8 @@ func _process(_delta):
 
 	if $MineSpawnTimer.is_stopped():
 		# make the spawn timer shorter the larger the player's score
-		var min_time = max(1.0 - float(counter) / 50.0, 0.1)
-		var max_time = max(2.0 - float(counter) / 50.0, 0.1)
+		var min_time = max(1.0 - float(counter) / 20.0, 0.1)
+		var max_time = max(2.0 - float(counter) / 20.0, 0.1)
 		$MineSpawnTimer.start(rng.randf_range(min_time, max_time))
 
 	if $CollectibleSpawnTimer.is_stopped():
@@ -38,9 +38,9 @@ func _process(_delta):
 		$CollectibleSpawnTimer.start(rng.randf_range(min_time, max_time))
 
 	if $CoffeeSpawnTimer.is_stopped():
-		if counter >= 50:
-			var min_time = 15.0
-			var max_time = 20.0
+		if counter >= 5:
+			var min_time = 2.0
+			var max_time = 7.0
 			$CoffeeSpawnTimer.start(rng.randf_range(min_time, max_time))
 
 func _on_MineSpawnTimer_timeout():
@@ -74,3 +74,16 @@ func _on_CoffeeSpawnTimer_timeout():
 		coffee.position.x = $Player.position.x + 854
 		coffee.position.y = rng.randf_range(208 - 5, 480 - 10)
 		add_child(coffee)
+
+	if $Player.alive:
+		var clock = load("res://Scenes/Clock.tscn").instance()
+		clock.position.x = $Player.position.x + 854 + 427
+		clock.position.y = rng.randf_range(208 - 5, 480 - 10)
+		clock.connect("collected", self, "_on_Clock_collected")
+		add_child(clock)
+
+func _on_Clock_collected():
+	counter = 0
+	var mines = get_tree().get_nodes_in_group("Mine")
+	for mine in mines:
+		mine.collided()

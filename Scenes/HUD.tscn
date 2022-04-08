@@ -16,9 +16,6 @@ custom_constants/margin_right = 8
 custom_constants/margin_top = 8
 custom_constants/margin_left = 8
 custom_constants/margin_bottom = 8
-__meta__ = {
-"_edit_use_anchors_": false
-}
 
 [node name="HBoxContainer" type="HBoxContainer" parent="."]
 margin_left = 8.0
@@ -37,25 +34,25 @@ texture = ExtResource( 2 )
 
 [node name="ScoreContainer" type="MarginContainer" parent="HBoxContainer"]
 margin_left = 30.0
-margin_right = 524.0
+margin_right = 556.0
 margin_bottom = 21.0
 size_flags_horizontal = 3
 
 [node name="Label" type="Label" parent="HBoxContainer/ScoreContainer"]
 margin_top = 2.0
-margin_right = 494.0
+margin_right = 526.0
 margin_bottom = 18.0
 custom_fonts/font = SubResource( 1 )
 text = "X0"
 
 [node name="VersionContainer" type="MarginContainer" parent="HBoxContainer"]
-margin_left = 528.0
+margin_left = 560.0
 margin_right = 624.0
 margin_bottom = 21.0
 
 [node name="Label" type="Label" parent="HBoxContainer/VersionContainer"]
 margin_top = 2.0
-margin_right = 96.0
+margin_right = 64.0
 margin_bottom = 18.0
 custom_fonts/font = SubResource( 2 )
-text = "v0.1.0"
+text = "v1.0"

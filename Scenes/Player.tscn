@@ -44,9 +44,7 @@ animations = [ {
 "speed": 8.0
 } ]
 
-[node name="Player" type="KinematicBody2D" groups=[
-"Player",
-]]
+[node name="Player" type="KinematicBody2D" groups=["Player"]]
 script = ExtResource( 5 )
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
@@ -65,8 +63,9 @@ limit_bottom = 480
 
 [node name="InvincibilityOverlay" type="AnimatedSprite" parent="."]
 visible = false
+position = Vector2( 0.5, 0.5 )
 frames = SubResource( 3 )
-frame = 4
+frame = 2
 playing = true
 
 [node name="InvincibilityTimer" type="Timer" parent="."]
