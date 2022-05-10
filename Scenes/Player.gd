@@ -1,6 +1,7 @@
 extends KinematicBody2D
 
 signal score_changed
+signal player_sunk
 
 export var speed = 300
 
@@ -71,8 +72,8 @@ func _physics_process(_delta):
 
 	var _returned_velocity = move_and_slide(velocity, Vector2(0, 0), false, 4, 0, false)
 	
-	if position.y < 208 - 13:
-		position.y = 208 - 13
+	if position.y < 160 - 13:
+		position.y = 160 - 13
 	if position.y > 480 - 15:
 		position.y = 480 - 15
 
@@ -97,3 +98,8 @@ func become_invincible():
 func _on_InvincibilityTimer_timeout():
 	invincible = false
 	$InvincibilityOverlay.visible = false
+
+
+func _on_AnimatedSprite_animation_finished():
+	if $AnimatedSprite.animation == "sinking":
+		emit_signal("player_sunk")

@@ -49,7 +49,6 @@ script = ExtResource( 5 )
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
 frames = SubResource( 1 )
-frame = 3
 playing = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
@@ -65,11 +64,12 @@ limit_bottom = 480
 visible = false
 position = Vector2( 0.5, 0.5 )
 frames = SubResource( 3 )
-frame = 2
+frame = 4
 playing = true
 
 [node name="InvincibilityTimer" type="Timer" parent="."]
 wait_time = 5.0
 one_shot = true
 
+[connection signal="animation_finished" from="AnimatedSprite" to="." method="_on_AnimatedSprite_animation_finished"]
 [connection signal="timeout" from="InvincibilityTimer" to="." method="_on_InvincibilityTimer_timeout"]
