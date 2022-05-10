@@ -55,4 +55,4 @@ margin_top = 2.0
 margin_right = 64.0
 margin_bottom = 18.0
 custom_fonts/font = SubResource( 2 )
-text = "v1.0"
+text = "v1.1"
