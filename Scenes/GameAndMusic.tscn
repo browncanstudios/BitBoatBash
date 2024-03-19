@@ -30,6 +30,7 @@ volume_db = -12.0
 [node name="MusicUI" type="CanvasLayer" parent="."]
 
 [node name="Container" type="HBoxContainer" parent="MusicUI"]
+visible = false
 anchor_left = 0.5
 anchor_right = 0.5
 margin_left = -49.0
