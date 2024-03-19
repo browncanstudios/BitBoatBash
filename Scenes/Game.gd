@@ -20,7 +20,7 @@ func _input(event):
 			if $Player.alive == false:
 				emit_signal("restart")
 	if event is InputEventKey and event.pressed:
-		if event.scancode == KEY_I:
+		if event.scancode == KEY_M or event.scancode == KEY_K:
 			$Player.become_invincible()
 
 func _process(_delta):
