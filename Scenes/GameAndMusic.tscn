@@ -1,8 +1,9 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://Assets/Font/kongtext.ttf" type="DynamicFontData" id=1]
 [ext_resource path="res://Assets/note.png" type="Texture" id=2]
 [ext_resource path="res://Scenes/GameAndMusic.gd" type="Script" id=3]
+[ext_resource path="res://Scenes/Websocket.gd" type="Script" id=4]
 
 [sub_resource type="DynamicFont" id=1]
 font_data = ExtResource( 1 )
@@ -123,3 +124,8 @@ margin_bottom = 52.0
 custom_fonts/font = SubResource( 5 )
 text = "CLICK/TOUCH/SPACE TO RETRY"
 align = 1
+
+[node name="Websocket" type="Node" parent="."]
+script = ExtResource( 4 )
+
+[connection signal="event_received" from="Websocket" to="." method="_on_Websocket_event_received"]
