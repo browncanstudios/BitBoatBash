@@ -28,9 +28,9 @@ func _physics_process(_delta):
 
 	# vertical movement (using analog joystick or buttons)
 	var left_vertical_analog_value = Input.get_joy_axis(0, JOY_AXIS_1)
-	if Input.is_key_pressed(KEY_W) or Input.is_key_pressed(KEY_UP) or Input.is_action_pressed("ui_up"):
+	if Input.is_action_pressed("ui_up"):
 		velocity.y = -speed
-	elif Input.is_key_pressed(KEY_S) or Input.is_key_pressed(KEY_DOWN) or Input.is_action_pressed("ui_down"):
+	elif Input.is_action_pressed("ui_down"):
 		velocity.y = speed
 	elif abs(left_vertical_analog_value) > 0.1:
 		velocity.y = left_vertical_analog_value * speed
@@ -39,10 +39,10 @@ func _physics_process(_delta):
 
 	# horizontal movement (using analog joystick or buttons)
 	var left_horizontal_analog_value = Input.get_joy_axis(0, JOY_AXIS_0)
-	if Input.is_key_pressed(KEY_A) or Input.is_key_pressed(KEY_LEFT) or Input.is_action_pressed("ui_left"):
+	if Input.is_action_pressed("ui_left"):
 		velocity.x = 0.5 * speed
 		$AnimatedSprite.set_speed_scale(0.5)
-	elif Input.is_key_pressed(KEY_D) or Input.is_key_pressed(KEY_RIGHT) or Input.is_action_pressed("ui_right"):
+	elif Input.is_action_pressed("ui_right"):
 		velocity.x = 2.0 * speed
 		$AnimatedSprite.set_speed_scale(2.0)
 	elif left_horizontal_analog_value > 0.1:

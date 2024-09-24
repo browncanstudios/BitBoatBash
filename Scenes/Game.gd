@@ -20,7 +20,7 @@ func _input(event):
 			if $Player.alive == false:
 				emit_signal("restart")
 	if event is InputEventKey and event.pressed:
-		if event.scancode == KEY_I:
+		if event.scancode == KEY_M or event.scancode == KEY_K:
 			$Player.become_invincible()
 
 func _process(_delta):
@@ -55,6 +55,15 @@ func _on_MineSpawnTimer_timeout():
 		mine.position.x = $Player.position.x + 854
 		mine.position.y = rng.randf_range(160, 480 - 10)
 		add_child(mine)
+
+func spawnBear():
+	if $Player.alive:
+		var bear = load("res://Scenes/Bear.tscn").instance()
+		bear.position.x = $Player.position.x + 196 +  rng.randf_range(64, 300)
+		bear.position.y = 24
+		bear.velocity.x = $Player.velocity.x
+		bear.destination = rng.randf_range(160 + 20, 480 - 30)
+		add_child(bear)
 
 func _on_CollectibleSpawnTimer_timeout():
 	if $Player.alive:
@@ -104,3 +113,13 @@ func _on_Clock_collected():
 	var coffees = get_tree().get_nodes_in_group("Coffee")
 	for coffee in coffees:
 		coffee.die()
+
+
+func _on_Websocket_event_received(event):
+	print("handling event")
+	print(event)
+	if event == "WarpEntered":
+		spawnBear()
+	if event == "CoffeeCollected":
+		$Player.become_invincible()
+

@@ -49,6 +49,7 @@ script = ExtResource( 5 )
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
 frames = SubResource( 1 )
+frame = 1
 playing = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
@@ -56,6 +57,7 @@ position = Vector2( 23.5, 0 )
 shape = SubResource( 2 )
 
 [node name="Camera2D" type="Camera2D" parent="."]
+offset = Vector2( 196, 0 )
 current = true
 limit_top = 0
 limit_bottom = 480
@@ -64,7 +66,7 @@ limit_bottom = 480
 visible = false
 position = Vector2( 0.5, 0.5 )
 frames = SubResource( 3 )
-frame = 4
+frame = 1
 playing = true
 
 [node name="InvincibilityTimer" type="Timer" parent="."]
