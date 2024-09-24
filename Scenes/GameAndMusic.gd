@@ -33,12 +33,10 @@ func restart_game_scene():
 	game.init()
 	game.get_node("Player").connect("player_sunk", self, "_on_Player_sunk")
 
+func _unhandled_input(event):
+	OS.window_fullscreen = true
+
 func _input(event):
-	if event is InputEventKey and event.pressed:
-		if event.scancode == KEY_SPACE and ($PressPlayUI/MarginContainer.visible or $GameOverUI/MarginContainer.visible):
-			$PressPlayUI/MarginContainer.visible = false
-			$GameOverUI/MarginContainer.visible = false
-			restart_game_scene()
 	if event is InputEventMouseButton:
 		if event.button_index == BUTTON_LEFT and ($PressPlayUI/MarginContainer.visible or $GameOverUI/MarginContainer.visible):
 			$PressPlayUI/MarginContainer.visible = false
@@ -62,6 +60,11 @@ func _process(_delta):
 		$MusicPlayer.stream = songs[song_index]["stream"]
 		$MusicPlayer.play()
 		$MusicUI/Container/SongLabel.text = songs[song_index]["name"]
-		
+
+	if Input.is_action_pressed("ui_accept") and ($PressPlayUI/MarginContainer.visible or $GameOverUI/MarginContainer.visible):
+		$PressPlayUI/MarginContainer.visible = false
+		$GameOverUI/MarginContainer.visible = false
+		restart_game_scene()
+
 func _on_Player_sunk():
 	$GameOverUI/MarginContainer.visible = true

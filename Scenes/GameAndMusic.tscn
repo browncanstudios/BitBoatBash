@@ -30,10 +30,11 @@ volume_db = -12.0
 [node name="MusicUI" type="CanvasLayer" parent="."]
 
 [node name="Container" type="HBoxContainer" parent="MusicUI"]
+visible = false
 anchor_left = 0.5
 anchor_right = 0.5
 margin_left = -49.0
-margin_top = 8.0
+margin_top = 16.0
 margin_right = 49.0
 margin_bottom = 10.0
 grow_horizontal = 2
@@ -89,7 +90,7 @@ margin_top = 36.0
 margin_right = 416.0
 margin_bottom = 52.0
 custom_fonts/font = SubResource( 3 )
-text = "CLICK/TOUCH/SPACE TO START"
+text = "A/B/X/Y TO START"
 align = 1
 
 [node name="GameOverUI" type="CanvasLayer" parent="."]
@@ -121,5 +122,5 @@ margin_top = 36.0
 margin_right = 416.0
 margin_bottom = 52.0
 custom_fonts/font = SubResource( 5 )
-text = "CLICK/TOUCH/SPACE TO RETRY"
+text = "A/B/X/Y TO RETRY"
 align = 1
