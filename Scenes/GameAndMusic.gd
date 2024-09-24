@@ -65,7 +65,3 @@ func _process(_delta):
 		
 func _on_Player_sunk():
 	$GameOverUI/MarginContainer.visible = true
-
-func _on_Websocket_event_received(event):
-	print("handling event")
-	print(event)
